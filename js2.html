@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+  <head>
+    <title>Document</title>
+  </head>
+  <body>
+    <form>
+        1st number <input type="number" id="no1">
+        2st number <input type="number" id="no2">
+        <button id="multiply"> multiply</button>
+        <button id="divide"> divide</button>
+        <h1 id="resultt"> ok</h1>
+    </form>
+
+
+    <br><br><br><br><br>
+
+    <input type="number" id="tempInput" name="tempInput">
+    <select id="unitSelect" name="unitSelect">
+        <option value="celsius">Celsius</option>
+        <option value="fahrenheit">Fahrenheit</option>
+    </select>
+    <button onclick="convertTemperature()">Convert</button>
+    <p id="result"></p>             
+
+  </body>
+
+
+  <script >
+
+
+    function area(side1, side2, side3) {
+  var semi = (side1 + side2 + side3) / 2;
+  var area = Math.sqrt(semi * (semi - side1) * (semi - side2) * (semi - side3));
+  console.log(area);
+}
+
+area(5, 6, 7);
+
+var no1 = document.querySelector("#no1").value;
+var no2 = document.querySelector("#no2");
+var mult = document.querySelector("#multiply");
+var div = document.querySelector("#divide");
+var result = document.querySelector("#result");
+
+mult.addEventListener(
+  "mouseover",
+  (mult = (no1, no2) => {
+    var no3 = no1 / no2;
+    result.innerText = no3;
+    console.log(no3);
+  })
+);
+
+div.addEventListener(
+  "mouseover",
+  (div = (no1, no2) => {
+    var no3 = no1 / no2;
+    result.innerText = no3;
+    console.log(no3);
+  })
+);
+
+function convertTemperature() {
+  var temperature = parseFloat(document.getElementById("tempInput").value);
+  var unit = document.getElementById("unitSelect").value;
+  var result = document.getElementById("result");
+
+  if (unit === "celsius") {
+    var resultt = (temperature * 9) / 5 + 32;
+    result.innerText = temperature + "°C is equal to -" + resultt + "°F.";
+  } else if (unit === "fahrenheit") {
+    var resultt = ((temperature - 32) * 5) / 9;
+    result.innerText = temperature + "°F is equal to - " + resultt + "°C.";
+  } else {
+    result.innerText = "Please select a valid unit.";
+  }
+}
+
+function diff(numb) {
+  if (numb <= 13) {
+    console.log(13 - numb);
+  } else if (numb > 13) {
+    console.log(2 * (numb - 13));
+  }
+}
+diff(14);
+
+function largest(numb1, numb2, numb3) {
+  var large = Math.max(numb1, Math.max(numb2, numb3));
+  console.log(large);
+}
+largest(3, 10, 21);
+
+function totalmarks(examtype, marks) {
+  if (examtype === "final-exam") {
+    if (marks >= 90) {
+      console.log("a+");
+    } else {
+      console.log("fail");
+    }
+  } else {
+    if (marks >= 90 && marks <= 100) {
+      console.log("a+");
+    } else {
+      console.log("fail");
+    }
+  }
+}
+
+totalmarks("final-exam",92)
+  </script>
+</html>
